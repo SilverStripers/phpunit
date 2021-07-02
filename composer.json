@@ -27,6 +27,7 @@
         "phpunit/php-code-coverage": "^9",
         "phpunit/php-timer": "^5",
         "phpspec/prophecy": "^1.6.2",
+        "sminnee/phpunit-mock-objects": "dev-php8",
         "symfony/yaml": "~2.1|~3.0|~4.0",
         "myclabs/deep-copy": "~1.10",
         "sebastian/comparator": "4.0.6",
