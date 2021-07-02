@@ -21,7 +21,8 @@
     },
     "prefer-stable": true,
     "require": {
-        "php": "^5.6 || ^7 || ^8"
+        "php": "^5.6 || ^7 || ^8",
+        "phpunit/php-file-iterator": "~3"
     },
     "replace": {
         "phpunit/phpunit": "^5.7"
