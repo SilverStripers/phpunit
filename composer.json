@@ -23,7 +23,9 @@
     "require": {
         "php": "^5.6 || ^7 || ^8",
         "phpunit/php-file-iterator": "~3",
-        "phpunit/php-text-template": "2.0.4"
+        "phpunit/php-text-template": "2.0.4",
+        "phpunit/php-code-coverage": "^9",
+        "phpunit/php-timer": "^5"
     },
     "replace": {
         "phpunit/phpunit": "^5.7"
