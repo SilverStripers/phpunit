@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /*
  * This file is part of PHPUnit.
  *
@@ -7,35 +7,31 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace PHPUnit\Util;
+
+use Throwable;
 
 /**
- * Utility class for textual type (and value) representation.
+ * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-class PHPUnit_Util_Type
+final class Type
 {
-    /**
-     * @param string $type
-     *
-     * @return bool
-     */
-    public static function isType($type)
+    public static function isType(string $type): bool
     {
-        return in_array(
-            $type,
-            [
-                'numeric',
-                'integer',
-                'int',
-                'float',
-                'string',
-                'boolean',
-                'bool',
-                'null',
-                'array',
-                'object',
-                'resource',
-                'scalar'
-            ]
-        );
+        return match ($type) {
+            'numeric', 'integer', 'int', 'iterable', 'float', 'string', 'boolean', 'bool', 'null', 'array', 'object', 'resource', 'scalar' => true,
+            default => false,
+        };
+    }
+
+    public static function isCloneable(object $object): bool
+    {
+        try {
+            $clone = clone $object;
+        } catch (Throwable $t) {
+            return false;
+        }
+
+        return $clone instanceof $object;
     }
 }

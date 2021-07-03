@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /*
  * This file is part of PHPUnit.
  *
@@ -7,6 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace PHPUnit\TestFixture;
 
 use PHPUnit\Framework\TestCase;
 
@@ -14,12 +15,12 @@ class BankAccountTest extends TestCase
 {
     private $ba;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->ba = new BankAccount;
     }
 
-    public function testBalanceIsInitiallyZero()
+    public function testBalanceIsInitiallyZero(): void
     {
         $ba = new BankAccount;
 
@@ -28,7 +29,7 @@ class BankAccountTest extends TestCase
         $this->assertEquals(0, $balance);
     }
 
-    public function testBalanceCannotBecomeNegative()
+    public function testBalanceCannotBecomeNegative(): void
     {
         try {
             $this->ba->withdrawMoney(1);
@@ -41,7 +42,7 @@ class BankAccountTest extends TestCase
         $this->fail();
     }
 
-    public function testBalanceCannotBecomeNegative2()
+    public function testBalanceCannotBecomeNegative2(): void
     {
         try {
             $this->ba->depositMoney(-1);
